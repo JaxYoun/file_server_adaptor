@@ -19,6 +19,18 @@ public class PropertiesBean {
     @Value("${file.server.minIdle}")
     private String minIdle;
 
+    @Value("${file.server.host}")
+    private String host;
+
+    @Value("${file.server.port}")
+    private String port;
+
+    @Value("${file.server.userName}")
+    private String userName;
+
+    @Value("${file.server.password}")
+    private String password;
+
     public FileServerType getServerType() {
         return FileServerType.valueOf(serverType.trim().toUpperCase());
     }
@@ -36,7 +48,7 @@ public class PropertiesBean {
     }
 
     public int getMaxIdle() {
-        return Integer.parseInt(this.maxIdle.trim());
+        return Integer.parseInt(maxIdle.trim());
     }
 
     public void setMaxIdle(String maxIdle) {
@@ -44,10 +56,42 @@ public class PropertiesBean {
     }
 
     public int getMinIdle() {
-        return Integer.parseInt(this.minIdle.trim());
+        return Integer.parseInt(minIdle.trim());
     }
 
     public void setMinIdle(String minIdle) {
         this.minIdle = minIdle;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public int getPort() {
+        return Integer.parseInt(port.trim());
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
