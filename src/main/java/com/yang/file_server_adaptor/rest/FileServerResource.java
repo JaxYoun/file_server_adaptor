@@ -27,4 +27,10 @@ public class FileServerResource {
         }
     }
 
+    public static void main(String[] args) {
+        BuilderTest builderTest = BuilderTest.builder().addId("yang").addName("name").build();
+        System.out.println(builderTest.getId());
+        System.out.println(builderTest.getName());
+    }
+
 }

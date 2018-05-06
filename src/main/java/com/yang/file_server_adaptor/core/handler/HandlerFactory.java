@@ -20,6 +20,10 @@ public class HandlerFactory extends BasePooledObjectFactory<IFileServerHandler> 
     public IFileServerHandler create() throws Exception {
         IFileServerHandler fileServerHandler;
         switch (this.propertiesBean.getServerType()) {
+            case NAIVE_FS: {
+                fileServerHandler = null;
+                break;
+            }
             case FTP: {
                 fileServerHandler = new FtpFileServerHandlerImpl(this.propertiesBean);
                 break;
