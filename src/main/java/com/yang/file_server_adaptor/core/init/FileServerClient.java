@@ -18,4 +18,16 @@ public class FileServerClient {
     public void setPool(GenericObjectPool<IFileServerHandler> pool) {
         this.pool = pool;
     }
+
+    public IFileServerHandler borrowFileServerHandler() throws RuntimeException {
+        try {
+            return this.pool.borrowObject();
+        } catch (Exception e) {
+            throw new RuntimeException("Fail to get fileServerHandler!", e);
+        }
+    }
+
+    public void borrowFileServerHandler(IFileServerHandler fileServerHandler) {
+        this.pool.returnObject(fileServerHandler);
+    }
 }
